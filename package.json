@@ -7,14 +7,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "execute": "nodemon producer.js",
-    "consume" : "nodemon consumer.js"
+    "consume": "nodemon consumer.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amqplib": "^0.10.3"
+    "amqplib": "^0.10.3",
+    "axios": "^1.4.0",
+    "node-fetch": "^3.3.1"
   },
   "devDependencies": {
+    "@types/amqplib": "^0.10.1",
     "nodemon": "^2.0.20"
   }
 }
