@@ -5,12 +5,12 @@ const rabbitSettings = {
   protocol: 'amqp',
   hostname: '3.229.42.196',
   port: 5672,
-  username: 'joelssj',
-  password: '15012590'
+  username: 'guest',
+  password: 'guest'
 };
 
 async function connect() {
-  const queue = 'InitialEvent';
+  const queue = 'mqtt';
   try {
     const conn = await _connect(rabbitSettings);
     console.log('Conexión exitosa');
@@ -19,9 +19,8 @@ async function connect() {
 
     channel.consume(queue, async (msn) => {
       const messageContent = msn.content.toString();
-     // console.log(messageContent);
       try {
-        const response = await fetch('http://localhost:4000/products/', {
+        const response = await fetch('http://3.220.243.236:3010/sensores/', {
           method: 'POST',
           body: messageContent,
           headers: { 'Content-Type': 'application/json', "Accept": "application/json"}
